@@ -114,6 +114,15 @@ const Tvlwc = props => {
                     priceLines = seriesPriceLines[i] ? seriesPriceLines[i] : [];
                     seriesId = i;
 
+                    if (options['ignore_autoscale'] === true) {
+                      options['autoscaleInfoProvider'] = () => ({
+                        priceRange: {
+                          minValue: 1_000_000_000,
+                          maxValue: 0,
+                        }
+                      });
+                    }
+
                     switch (seriesTypes[i]) {
                         case 'bar':
                             series = tvChart.current.addBarSeries(options);
