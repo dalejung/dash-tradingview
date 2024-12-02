@@ -42,7 +42,7 @@ const Tvlwc = props => {
 
     function handleMouseEvent(param) {
         // match index key (seriesId) to the param by joining through seriesApi
-        param.seriesPrices = Object.fromEntries([...allSeries.current].map(([seriesId, seriesApi]) => [seriesId, param.seriesPrices.get(seriesApi)]));
+        param.seriesData = Object.fromEntries([...allSeries.current].map(([seriesId, seriesApi]) => [seriesId, param.seriesData.get(seriesApi)]));
         return param;
     };
 
@@ -89,7 +89,7 @@ const Tvlwc = props => {
 
             setProps({
                 fullChartOptions: tvChart.current.options(),
-                fullPriceScaleOptions: tvChart.current.priceScale().options(),
+                // fullPriceScaleOptions: tvChart.current.priceScale().options(),
                 priceScaleWidth: tvChart.current.priceScale().width(),
                 fullTimeScaleOptions: tvChart.current.timeScale().options(),
             });
