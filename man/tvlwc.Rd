@@ -13,8 +13,8 @@ Tradingview Lightweight Chart object
 tvlwc(id=NULL, chartOptions=NULL, click=NULL, crosshair=NULL,
 fullChartOptions=NULL, fullPriceScaleOptions=NULL,
 fullSeriesOptions=NULL, fullTimeScaleOptions=NULL,
-height=NULL, priceScaleWidth=NULL, seriesData=NULL,
-seriesMarkers=NULL, seriesOptions=NULL,
+height=NULL, panes=NULL, priceScaleWidth=NULL,
+seriesData=NULL, seriesMarkers=NULL, seriesOptions=NULL,
 seriesPriceLines=NULL, seriesTypes=NULL,
 timeRangeVisibleLogicalRange=NULL,
 timeRangeVisibleRange=NULL, timeScaleHeight=NULL,
@@ -40,6 +40,8 @@ See https://tradingview.github.io/lightweight-charts/docs/api/interfaces/ChartOp
 \item{fullTimeScaleOptions}{Named list. Full time scale options including defaults; read-only}
 
 \item{height}{Character | numeric. Sets height of the parent div of the chart}
+
+\item{panes}{List of list of named listss. }
 
 \item{priceScaleWidth}{Numeric. Width of price scale; read-only}
 

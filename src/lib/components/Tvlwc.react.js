@@ -27,6 +27,7 @@ const Tvlwc = props => {
         seriesOptions,
         seriesMarkers,
         seriesPriceLines,
+        panes,
         width,
         height,
     } = props;
@@ -164,6 +165,54 @@ const Tvlwc = props => {
                     newSeries.set(seriesId, series);
                 };
 
+                for (var j = 0; j < panes.length; j++) {
+                    var pane, paneId, paneSeriesData, paneSeriesOptions, paneSeriesMarkers, paneSeriesPriceLines;
+                    var series, options, data, markers, priceLines;
+                    pane = panes[j];
+                    paneId = j + 1;
+                    console.log(pane)
+
+                    for (var i = 0; i < pane['seriesData'].length; i++) {
+                      options = pane['seriesOptions'][i] ? pane['seriesOptions'][i] : {};
+                      data = pane['seriesData'][i] ? pane['seriesData'][i] : [];
+                      markers = pane['seriesMarkers'][i] ? pane['seriesMarkers'][i] : [];
+                      priceLines = pane['seriesPriceLines'][i] ? pane['seriesPriceLines'][i] : [];
+                      seriesId = i;
+
+                      switch (pane['seriesTypes'][i]) {
+                          case 'bar':
+                              series = tvChart.current.addSeries(BarSeries, options, paneId);
+                              break;
+                          case 'candlestick':
+                              series = tvChart.current.addSeries(CandlestickSeries, options, paneId);
+                              break;
+                          case 'area':
+                              series = tvChart.current.addSeries(AreaSeries, options, paneId);
+                              break;
+                          case 'baseline':
+                              series = tvChart.current.addSeries(BaselineSeries, options, paneId);
+                              break;
+                          case 'line':
+                              series = tvChart.current.addSeries(LineSeries, options, paneId);
+                              break;
+                          case 'histogram':
+                              series = tvChart.current.addSeries(HistogramSeries, options, paneId);
+                              break;
+                          default:
+                              break;
+                          }
+                      series.setData(data);
+                      const sm = createSeriesMarkers(
+                        series,
+                        markers
+                      )
+                      for (const pl of priceLines) { series.createPriceLine(pl); }
+
+                      newSeries.set((paneId * 100) + seriesId, series);
+
+                    }
+                }
+
                 allSeries.current = newSeries;
 
                 setProps({
@@ -184,7 +233,8 @@ const Tvlwc = props => {
             seriesTypes,
             seriesOptions,
             seriesMarkers,
-            seriesPriceLines
+            seriesPriceLines,
+            panes
         ]
     );
 
@@ -200,6 +250,7 @@ Tvlwc.defaultProps = {
     seriesOptions: [],
     seriesMarkers: [],
     seriesPriceLines: [],
+    panes: [],
     crosshair: {},
     click: {},
     fullChartOptions: {},
@@ -251,6 +302,8 @@ Tvlwc.propTypes = {
      * Additional price lines for the series
      */
     seriesPriceLines: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+
+    panes: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
 
     /**
      * Crosshair coordinates; read-only
