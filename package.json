@@ -24,7 +24,7 @@
   "author": "Kwan Yu, WU <wukwanyutyson@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "lightweight-charts": "^4.2.0"
+    "lightweight-charts": "^5.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
