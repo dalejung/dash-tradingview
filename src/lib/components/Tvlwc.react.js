@@ -1,6 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { createChart } from 'lightweight-charts';
+import {
+  createChart,
+  AreaSeries,
+  BarSeries,
+  BaselineSeries,
+  HistogramSeries,
+  CandlestickSeries,
+  LineSeries,
+  createSeriesMarkers,
+} from 'lightweight-charts';
 
 
 /**
@@ -125,28 +134,31 @@ const Tvlwc = props => {
 
                     switch (seriesTypes[i]) {
                         case 'bar':
-                            series = tvChart.current.addBarSeries(options);
+                            series = tvChart.current.addSeries(BarSeries, options);
                             break;
                         case 'candlestick':
-                            series = tvChart.current.addCandlestickSeries(options);
+                            series = tvChart.current.addSeries(CandlestickSeries, options);
                             break;
                         case 'area':
-                            series = tvChart.current.addAreaSeries(options);
+                            series = tvChart.current.addSeries(AreaSeries, options);
                             break;
                         case 'baseline':
-                            series = tvChart.current.addBaselineSeries(options);
+                            series = tvChart.current.addSeries(BaselineSeries, options);
                             break;
                         case 'line':
-                            series = tvChart.current.addLineSeries(options);
+                            series = tvChart.current.addSeries(LineSeries, options);
                             break;
                         case 'histogram':
-                            series = tvChart.current.addHistogramSeries(options);
+                            series = tvChart.current.addSeries(HistogramSeries, options);
                             break;
                         default:
                             break;
                         }
                     series.setData(data);
-                    series.setMarkers(markers);
+                    const sm = createSeriesMarkers(
+                      series,
+                      markers
+                    )
                     for (const pl of priceLines) { series.createPriceLine(pl); }
                     // add this seriesId and seriesApi pair to existing allSeries state
                     newSeries.set(seriesId, series);

@@ -83,35 +83,6 @@ module.exports = (env, argv) => {
         },
         optimization: {
             minimizer: [],
-            // minimizer: [
-            //     new TerserPlugin({
-            //         sourceMap: true,
-            //         parallel: true,
-            //         cache: './.build_cache/terser',
-            //         terserOptions: {
-            //             warnings: false,
-            //             ie8: false
-            //         }
-            //     })
-            // ],
-            splitChunks: {
-                name: true,
-                cacheGroups: {
-                    async: {
-                        chunks: 'async',
-                        minSize: 0,
-                        name(module, chunks, cacheGroupKey) {
-                            return `${cacheGroupKey}-${chunks[0].name}`;
-                        }
-                    },
-                    shared: {
-                        chunks: 'all',
-                        minSize: 0,
-                        minChunks: 2,
-                        name: 'dash_tvlwc-shared'
-                    }
-                }
-            }
         },
         plugins: [
             new WebpackDashDynamicImport(),
