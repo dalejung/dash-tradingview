@@ -77,11 +77,79 @@ Keyword arguments:
     _namespace = 'dash_tvlwc'
     _type = 'Tvlwc'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, chartOptions=Component.UNDEFINED, seriesData=Component.UNDEFINED, seriesTypes=Component.UNDEFINED, seriesOptions=Component.UNDEFINED, seriesMarkers=Component.UNDEFINED, seriesPriceLines=Component.UNDEFINED, panes=Component.UNDEFINED, crosshair=Component.UNDEFINED, click=Component.UNDEFINED, fullChartOptions=Component.UNDEFINED, fullPriceScaleOptions=Component.UNDEFINED, priceScaleWidth=Component.UNDEFINED, fullSeriesOptions=Component.UNDEFINED, timeRangeVisibleRange=Component.UNDEFINED, timeRangeVisibleLogicalRange=Component.UNDEFINED, timeScaleWidth=Component.UNDEFINED, timeScaleHeight=Component.UNDEFINED, fullTimeScaleOptions=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'chartOptions', 'click', 'crosshair', 'fullChartOptions', 'fullPriceScaleOptions', 'fullSeriesOptions', 'fullTimeScaleOptions', 'height', 'panes', 'priceScaleWidth', 'seriesData', 'seriesMarkers', 'seriesOptions', 'seriesPriceLines', 'seriesTypes', 'timeRangeVisibleLogicalRange', 'timeRangeVisibleRange', 'timeScaleHeight', 'timeScaleWidth', 'width']
-        self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'chartOptions', 'click', 'crosshair', 'fullChartOptions', 'fullPriceScaleOptions', 'fullSeriesOptions', 'fullTimeScaleOptions', 'height', 'panes', 'priceScaleWidth', 'seriesData', 'seriesMarkers', 'seriesOptions', 'seriesPriceLines', 'seriesTypes', 'timeRangeVisibleLogicalRange', 'timeRangeVisibleRange', 'timeScaleHeight', 'timeScaleWidth', 'width']
-        self.available_wildcard_properties =            []
+    def __init__(
+        self,
+        id=Component.UNDEFINED,
+        chartOptions=Component.UNDEFINED,
+        seriesData=Component.UNDEFINED,
+        seriesTypes=Component.UNDEFINED,
+        seriesOptions=Component.UNDEFINED,
+        seriesMarkers=Component.UNDEFINED,
+        seriesPriceLines=Component.UNDEFINED,
+        panes=Component.UNDEFINED,
+        crosshair=Component.UNDEFINED,
+        click=Component.UNDEFINED,
+        fullChartOptions=Component.UNDEFINED,
+        fullPriceScaleOptions=Component.UNDEFINED,
+        priceScaleWidth=Component.UNDEFINED,
+        fullSeriesOptions=Component.UNDEFINED,
+        timeRangeVisibleRange=Component.UNDEFINED,
+        timeRangeVisibleLogicalRange=Component.UNDEFINED,
+        timeScaleWidth=Component.UNDEFINED,
+        timeScaleHeight=Component.UNDEFINED,
+        fullTimeScaleOptions=Component.UNDEFINED,
+        width=Component.UNDEFINED,
+        height=Component.UNDEFINED,
+        **kwargs
+    ):
+        self._prop_names = [
+            'id',
+            'chartOptions',
+            'click',
+            'crosshair',
+            'fullChartOptions',
+            'fullPriceScaleOptions',
+            'fullSeriesOptions',
+            'fullTimeScaleOptions',
+            'height',
+            'panes',
+            'priceScaleWidth',
+            'seriesData',
+            'seriesMarkers',
+            'seriesOptions',
+            'seriesPriceLines',
+            'seriesTypes',
+            'timeRangeVisibleLogicalRange',
+            'timeRangeVisibleRange',
+            'timeScaleHeight',
+            'timeScaleWidth',
+            'width',
+        ]
+        self._valid_wildcard_attributes = []
+        self.available_properties = [
+            'id',
+            'chartOptions',
+            'click',
+            'crosshair',
+            'fullChartOptions',
+            'fullPriceScaleOptions',
+            'fullSeriesOptions',
+            'fullTimeScaleOptions',
+            'height',
+            'panes',
+            'priceScaleWidth',
+            'seriesData',
+            'seriesMarkers',
+            'seriesOptions',
+            'seriesPriceLines',
+            'seriesTypes',
+            'timeRangeVisibleLogicalRange',
+            'timeRangeVisibleRange',
+            'timeScaleHeight',
+            'timeScaleWidth',
+            'width',
+        ]
+        self.available_wildcard_properties = []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
